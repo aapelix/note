@@ -155,7 +155,7 @@ export const UndoRedoButton = React.forwardRef<
   ) => {
     const editor = useTiptapEditor(providedEditor);
 
-    const { isDisabled, handleAction, Icon, actionLabel, shortcutKey } =
+    const { isDisabled, handleAction, actionLabel, shortcutKey } =
       useHistoryAction(editor, action, disabled);
 
     const handleClick = React.useCallback(

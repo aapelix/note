@@ -159,24 +159,15 @@ export function useListState(editor: Editor | null, type: ListType) {
 }
 
 export const ListButton = React.forwardRef<HTMLButtonElement, ListButtonProps>(
-  (
-    {
-      editor: providedEditor,
-      type,
-      hideWhenUnavailable = false,
-      className = "",
-      onClick,
-      text,
-      children,
-      ...buttonProps
-    },
-    ref,
-  ) => {
+  ({
+    editor: providedEditor,
+    type,
+    hideWhenUnavailable = false,
+    onClick,
+    text,
+  }) => {
     const editor = useTiptapEditor(providedEditor);
-    const { listInSchema, listOption, isActive, shortcutKey } = useListState(
-      editor,
-      type,
-    );
+    const { listInSchema, listOption } = useListState(editor, type);
 
     const Icon = listOption?.icon || ListIcon;
 

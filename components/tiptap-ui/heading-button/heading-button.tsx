@@ -149,30 +149,21 @@ export const HeadingButton = React.forwardRef<
   HTMLDivElement,
   HeadingButtonProps
 >(
-  (
-    {
-      editor: providedEditor,
-      level,
-      text,
-      hideWhenUnavailable = false,
-      className = "",
-      disabled,
-      onClick,
-      children,
-      ...buttonProps
-    },
-    ref,
-  ) => {
+  ({
+    editor: providedEditor,
+    level,
+    text,
+    hideWhenUnavailable = false,
+    disabled,
+    onClick,
+  }) => {
     const editor = useTiptapEditor(providedEditor);
 
-    const {
-      headingInSchema,
-      isDisabled,
-      isActive,
-      Icon,
-      shortcutKey,
-      formattedName,
-    } = useHeadingState(editor, level, disabled);
+    const { headingInSchema, isDisabled, Icon } = useHeadingState(
+      editor,
+      level,
+      disabled,
+    );
 
     const handleClick = React.useCallback(
       (e: React.MouseEvent<HTMLDivElement>) => {
